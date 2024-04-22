@@ -11,10 +11,11 @@ import ListItem from '../components/ListItem';
 
 
 const UpcomingWeather = ( {weatherData} ) => {
+
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0].main}
-      dt_txt={item.dt_txt}
+      dt={item.dt}
       min={item.main.temp_min}
       max={item.main.temp_max}
     />
@@ -29,7 +30,7 @@ const UpcomingWeather = ( {weatherData} ) => {
         <FlatList
           data={weatherData}
           renderItem={renderItem}
-          keyExtractor={(item) => item.dt_txt}
+          keyExtractor={(item) => item.dt}
         />
       </ImageBackground>
     </SafeAreaView>

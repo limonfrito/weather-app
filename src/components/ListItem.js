@@ -5,14 +5,15 @@ import moment from 'moment';
 import { weatherType } from "../utilities/weatherType";
 
 const ListItem = (props) => {
-  const { dt_txt, min, max, condition } = props;
+  const { dt, min, max, condition } = props;
   const { item, date, temp, dateTextWrapper } = styles;
+  console.log(dt + '000')
   return (
     <View style={item}>
       <Feather name={weatherType[condition]?.icon} size={50} color={"white"} />
       <View style={dateTextWrapper}>
-        <Text style={date}>{moment(dt_txt).format('dddd')}</Text>
-        <Text style={date}>{moment(dt_txt).format('h:mm:ss a')}</Text>
+        <Text style={date}>{moment(parseInt(dt + '000')).format('dddd')}</Text>
+        <Text style={date}>{moment(parseInt(dt + '000')).format('h:mm:ss a')}</Text>
       </View>
       <Text style={temp}>{`${Math.round(min)}°/ ${Math.round(max)}°`}</Text>
     </View>

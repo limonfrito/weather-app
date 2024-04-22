@@ -45,13 +45,13 @@ const City = ({ weatherData }) => {
           <IconText
             iconName={"sunrise"}
             iconColor={"white"}
-            bodyText={moment(sunrise).format('hh:mm:ss a')}
+            bodyText={moment(parseInt(sunrise + '000')).format('hh:mm:ss a')}
             bodyTextStyles={riseSetText}
           />
           <IconText
             iconName={"sunset"}
             iconColor={"white"}
-            bodyText={moment(sunset).format('hh:mm:ss a')}
+            bodyText={moment(parseInt(sunset + '000')).format('hh:mm:ss a')}
             bodyTextStyles={riseSetText}
           />
         </View>
