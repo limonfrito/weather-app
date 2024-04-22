@@ -39,7 +39,8 @@ const UpcomingWeather = ( {weatherData} ) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: 0,
+    //marginTop: 0 || StatusBar.currentHeight,
     backgroundColor: "royalblue",
   },
   image: {

@@ -7,9 +7,11 @@ import {
   ImageBackground,
   StatusBar,
 } from "react-native";
+import moment from "moment";
 import IconText from "./IconText";
 
-const City = () => {
+const City = ({ weatherData }) => {
+  const { name, country, population, sunrise, sunset } = weatherData;
   const {
     container,
     imageLayout,
@@ -20,7 +22,7 @@ const City = () => {
     populationText,
     riseSetWrapper,
     riseSetText,
-    rowLayout
+    rowLayout,
   } = styles;
   return (
     <SafeAreaView style={container}>
@@ -28,15 +30,30 @@ const City = () => {
         source={require("./../../assets/city-background.jpg")}
         style={imageLayout}
       >
-        <Text style={[cityText, cityName]}>Guadalajara</Text>
-        <Text style={[cityText, countryName]}>Mexico</Text>
+        <Text style={[cityText, cityName]}>{name}</Text>
+        <Text style={[cityText, countryName]}>{country}</Text>
 
         <View style={[populationWrapper, rowLayout]}>
-          <IconText iconName={'user'} iconColor={'red'} bodyText={'4,000,000'} bodyTextStyles={populationText} />
+          <IconText
+            iconName={"user"}
+            iconColor={"red"}
+            bodyText={`Population: ${population}`}
+            bodyTextStyles={populationText}
+          />
         </View>
         <View style={[riseSetWrapper, rowLayout]}>
-          <IconText iconName={'sunrise'} iconColor={'white'} bodyText={'06:10:58am'} bodyTextStyles={riseSetText} />
-          <IconText iconName={'sunset'} iconColor={'white'} bodyText={'07:20:35pm'} bodyTextStyles={riseSetText} />
+          <IconText
+            iconName={"sunrise"}
+            iconColor={"white"}
+            bodyText={moment(sunrise).format('hh:mm:ss a')}
+            bodyTextStyles={riseSetText}
+          />
+          <IconText
+            iconName={"sunset"}
+            iconColor={"white"}
+            bodyText={moment(sunset).format('hh:mm:ss a')}
+            bodyTextStyles={riseSetText}
+          />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -46,7 +63,8 @@ const City = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: 0,
+    //marginTop: StatusBar.currentHeight || 0,
   },
   imageLayout: {
     flex: 1,
@@ -81,11 +99,9 @@ const styles = StyleSheet.create({
   riseSetText: {
     fontSize: 20,
     color: "white",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
-  rowLayout: {
-
-  }
+  rowLayout: {},
 });
 
 export default City;
