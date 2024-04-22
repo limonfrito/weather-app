@@ -12,7 +12,7 @@ const Tabs = (props) => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "tomato",
+        tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "grey",
         tabBarStyle: {
           backgroundColor: "lightblue",
@@ -23,7 +23,7 @@ const Tabs = (props) => {
         headerTitleStyle: {
           fontWeight: "bold",
           fontSize: 25,
-          color: "tomato",
+          color: "black",
         },
       }}
     >

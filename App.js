@@ -12,7 +12,7 @@ const App = () => {
   if (weather && weather.list && !loading) {
     return (
       <NavigationContainer>
-        <Tabs weather={weather} />
+        <Tabs weather={weather} iconSize={20} />
       </NavigationContainer>
     );
   }
